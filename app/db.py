@@ -9,7 +9,7 @@ metadata = sa.MetaData()
 t_customers = sa.Table(
     "customers",
     metadata,
-    sa.Column('id', sa.Integer, primary_key=True),
+    sa.Column('id', sa.String(50), primary_key=True),
     sa.Column('name', sa.String(50)),
     sa.Column('last_name', sa.String(50)),
     sa.Column('email', sa.String(50)),

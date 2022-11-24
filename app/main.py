@@ -32,7 +32,7 @@ async def get_customers():
 
 
 @app.get("/{customer_id}", response_model=schemas.SchemaCustomer)
-async def get_customer(customer_id: int):
+async def get_customer(customer_id: str):
     item = await services.get_customer_by_id(customer_id)
     if item:
         return item
@@ -41,7 +41,7 @@ async def get_customer(customer_id: int):
 
         
 @app.delete("/{customer_id}", status_code=201)
-async def delete_customer(customer_id: int):
+async def delete_customer(customer_id: str):
     item = await services.get_customer_by_id(customer_id)
     if item:
         await services.delete_customer(customer_id)
@@ -56,7 +56,7 @@ async def save_customer(data: schemas.SchemaCustomerCreation):
         
         
 @app.patch("/{customer_id}", response_model=schemas.SchemaCustomer)
-async def update_customer(customer_id: int, data: schemas.SchemaCustomerUpdate):
+async def update_customer(customer_id: str, data: schemas.SchemaCustomerUpdate):
     item = await services.get_customer_by_id(customer_id)
     if item:
         return await services.update_customer(customer_id, data)

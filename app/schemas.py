@@ -1,17 +1,21 @@
 import pydantic
+from pydantic import validator
 import typing
+from uuid import UUID, uuid4
 
 
 class SchemaCustomer(pydantic.BaseModel):
-    id: int
+    id: str
     name: str
     last_name: str
     email: pydantic.EmailStr
     age: pydantic.PositiveInt
-        
+
+    @validator('id', pre=True, always=True)
+    def convert_id_to_str(cls, v):
+        return str(v)
 
 class SchemaCustomerCreation(pydantic.BaseModel):
-    id: int
     name: str
     last_name: str
     email: pydantic.EmailStr
