@@ -1,0 +1,582 @@
+{
+	"info": {
+		"_postman_id": "6c8b9a94-d668-40b4-ac65-aaebc1500ac4",
+		"name": "workshop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success: w data",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:52:41 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "89"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"a119654b-e465-4cec-80d1-0b9161007f08\",\n        \"name\": \"Edmundo\",\n        \"last_name\": \"Andrade\",\n        \"email\": \"edmon.af@gmail.com\",\n        \"age\": 33\n    },\n    {\n        \"id\": \"c68d3e9f-11b9-4d03-bc12-c8e608c5a0a7\",\n        \"name\": \"Edmundo\",\n        \"last_name\": \"Andrade\",\n        \"email\": \"edmon.af@gmail.com\",\n        \"age\": 33\n    },\n    {\n        \"id\": \"167e04c1-b0ff-4435-a0f3-70f893c923e5\",\n        \"name\": \"Edmundo\",\n        \"last_name\": \"Andrade\",\n        \"email\": \"edmon.af@gmail.com\",\n        \"age\": 33\n    }\n]"
+				},
+				{
+					"name": "Success: Empty",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:47:34 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "2"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "[]"
+				}
+			]
+		},
+		{
+			"name": "Get customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/a119654b-e465-4cec-80d1-0b9161007f08",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"a119654b-e465-4cec-80d1-0b9161007f08"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/117",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"117"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:54:13 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "87"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"a119654b-e465-4cec-80d1-0b9161007f08\",\n    \"name\": \"Edmundo\",\n    \"last_name\": \"Andrade\",\n    \"email\": \"edmon.af@gmail.com\",\n    \"age\": 33\n}"
+				},
+				{
+					"name": "Error: not found",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/a119654b-e465-4cec-80d1-0b9161007f01",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"a119654b-e465-4cec-80d1-0b9161007f01"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:53:43 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "34"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Recurso no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Edmundo\",\n    \"last_name\": \"Andrade\",\n    \"age\": 33,\n    \"email\": \"edmon.af@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": {{$randomInt}},\n    \"name\": \"Edmundo\",\n    \"last_name\": \"Andrade\",\n    \"age\": 33,\n    \"email\": \"edmon.af@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:52:36 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "87"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"167e04c1-b0ff-4435-a0f3-70f893c923e5\",\n    \"name\": \"Edmundo\",\n    \"last_name\": \"Andrade\",\n    \"email\": \"edmon.af@gmail.com\",\n    \"age\": 33\n}"
+				},
+				{
+					"name": "Error: body",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:50:50 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "81"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": [\n        {\n            \"loc\": [\n                \"body\"\n            ],\n            \"msg\": \"field required\",\n            \"type\": \"value_error.missing\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "Error: email validation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Edmundo\",\n    \"last_name\": \"Andrade\",\n    \"age\": 33,\n    \"email\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "Unprocessable Entity",
+					"code": 422,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:52:16 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "107"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": [\n        {\n            \"loc\": [\n                \"body\",\n                \"email\"\n            ],\n            \"msg\": \"value is not a valid email address\",\n            \"type\": \"value_error.email\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"test\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api_url}}/a119654b-e465-4cec-80d1-0b9161007f08",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"a119654b-e465-4cec-80d1-0b9161007f08"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/a119654b-e465-4cec-80d1-0b9161007f08",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"a119654b-e465-4cec-80d1-0b9161007f08"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 11:39:24 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "119"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"a119654b-e465-4cec-80d1-0b9161007f08\",\n    \"name\": \"test\",\n    \"last_name\": \"Andrade\",\n    \"email\": \"edmon.af@gmail.com\",\n    \"age\": 33\n}"
+				},
+				{
+					"name": "Error: Not found",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_url}}/a119654b-e465-4cec-80d1-0b9161007f01",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"a119654b-e465-4cec-80d1-0b9161007f01"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 11:40:08 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "34"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Recurso no encontrado\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api_url}}/117",
+					"host": [
+						"{{api_url}}"
+					],
+					"path": [
+						"117"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/117",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"117"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:55:49 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "16"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"OK\"\n}"
+				},
+				{
+					"name": "Error: Not found",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_url}}/117",
+							"host": [
+								"{{api_url}}"
+							],
+							"path": [
+								"117"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Thu, 24 Nov 2022 10:55:58 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "34"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Recurso no encontrado\"\n}"
+				}
+			]
+		}
+	]
+}
