@@ -5,12 +5,9 @@ from . import services
 from . import schemas
 from .db import database
 import logging
-import settings
 
 
 logging.basicConfig(filename='fastapi.log', level=logging.INFO)
-
-
 
 app = FastAPI(
     title="Workshop FastAPI",
@@ -53,21 +50,16 @@ async def delete_customer(customer_id: int):
         raise HTTPException(status_code=404, detail="Recurso no encontrado")
 
         
-@app.post("/{customer_id}", response_model=schemas.SchemaCustomer)
-async def save_customer(customer_id: int, data: schemas.SchemaCustomerCreation):
-    item = await services.get_customer_by_id(customer_id)
-    if item:
-        raise HTTPException(status_code=409, detail="Recurso existente")
-    else:
-        return await services.save_customer(customer_id, dict(data))
+@app.post("/", response_model=schemas.SchemaCustomer)
+async def save_customer(data: schemas.SchemaCustomerCreation):
+    return await services.save_customer(dict(data))
         
         
-@app.put("/{customer_id}", response_model=schemas.SchemaCustomer)
-async def update_customer(customer_id: int, data: schemas.SchemaCustomer):
+@app.patch("/{customer_id}", response_model=schemas.SchemaCustomer)
+async def update_customer(customer_id: int, data: schemas.SchemaCustomerUpdate):
     item = await services.get_customer_by_id(customer_id)
     if item:
-        await services.delete_customer(customer_id)
-        return await services.delete_customer(customer_id, dict(data))
+        return await services.update_customer(customer_id, data)
     else:
         raise HTTPException(status_code=404, detail="Recurso no encontrado")
     

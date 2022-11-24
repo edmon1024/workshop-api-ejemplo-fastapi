@@ -12,11 +12,16 @@ async def get_customer_by_id(customer_id: int) -> dict:
     return await database.fetch_one(query=query)
 
 
-async def save_customer(customer_id: int, data: schemas.SchemaCustomerCreation) -> dict:
-    data['id'] = customer_id
+async def save_customer(data: schemas.SchemaCustomerCreation) -> dict:
     query = t_customers.insert()
     await database.execute(query=query, values=data)
     return data
+
+
+async def update_customer(customer_id: int, data: schemas.SchemaCustomerUpdate) -> dict:
+    query = t_customers.update().where(t_customers.c.id == customer_id)
+    await database.execute(query=query, values=data.dict(exclude_none=True))
+    return await get_customer_by_id(customer_id)
 
 
 async def delete_customer(customer_id: int) -> bool:
